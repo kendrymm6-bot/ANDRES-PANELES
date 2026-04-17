@@ -11,11 +11,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
 
-      - name: Preparar Theos
+      - name: Preparar Theos y ldid
         run: |
+          brew install ldid
           git clone --recursive https://github.com/theos/theos.git ~/theos
           curl -LO https://github.com/theos/sdks/archive/master.zip
           unzip master.zip -d ~/theos/sdks
